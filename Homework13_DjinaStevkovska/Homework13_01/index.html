@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 13_01</title>
+</head>
+<body>
+
+
+    <script>
+        // calculate the tip rate based on bill amount
+        function tipCalculator(bill) {
+            if ( bill < 50 ) {
+                return (bill*20/100);
+            } 
+            else if (bill > 50 && bill <= 200) {
+                return (bill*15/100);
+            }
+            else if ( bill > 200) {
+                return (bill*10/100);
+            }
+        }
+
+        // define tip rate for each bill
+        var tip20 = tipCalculator(48);
+        var tip15 = tipCalculator(124);
+        var tip10 = tipCalculator(268);
+
+        // return array from the tips
+        console.log(tip20, tip15, tip10);
+
+
+        // calculate final amount BILL + TIP
+        function finalAmount(bill) {
+
+            // calculate tip rate
+            var tipAmount = tipCalculator(bill);
+
+            // return full amount
+            return bill + tipAmount ;
+        }
+
+
+        // define final amount of the bill based on the tip rate 
+        // Small is for 20% tip rate
+        // Medium is for 15% tip rate
+        // Large is for 10% tip rate
+        var finalAmountSmall = finalAmount(48);
+        var finalAmountMedium = finalAmount(124);
+        var finalAmountLarge = finalAmount(268);
+
+        // return array from the final amount of the bills
+        console.log(finalAmountSmall, finalAmountMedium, finalAmountLarge);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Your custom CSS styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page title -->
+    <title>Your Bootstrap theme</title>
+</head>
+
+<body>
+    <!-- START HERE YOUR BOOTSTRAP HTML CODE -->
+   
+
+    <div class="w-50 mx-auto border">
+        <div class="card-header">
+            <h2>User Information</h2>
+        </div>
+         
+        <form class="form-horizontal p-3" action="/action_page.php">
+
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="firstName">First&nbsp;Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="First Name">
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="lastName">Last&nbsp;Name:</label>
+                <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="Last Name">
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email">
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="company">Company:</label>
+                <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="company" placeholder="Enter company" name="Company">
+                </div>
+            </div>
+     
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="website">Website:</label>
+                <div class="col-sm-10">          
+                    <input type="text" class="form-control" id="website" placeholder="Enter website" name="Website">
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="timezone">Timezone:</label>
+                <select class="form-control w-75 ml-3" id="timezone" data-country="US">
+                    <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
+                    <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
+                    <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>     
+                </select>
+            </div>
+    
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="username">Username:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="username" placeholder="Enter username">
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                <div class="col-sm-10 input-group mb-2">
+                    <input type="password" class="form-control" id="pwd" placeholder="**********">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                    </div>
+                    <p class="text-secondary">Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+                        spaces, special characters, or emoji.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="pwd">Confirm:</label>
+                <div class="col-sm-10 input-group mb-2">
+                    <input type="password" class="form-control" id="pwd" placeholder="**********">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                    </div>
+                </div>
+            </div>
+    
+            <button type="button" class="btn btn-primary">Cancel</button>
+            <button type="button" class="btn btn-secondary">Save changes</button>
+
+        </form>
+    </div>
+
+    <script>
+        // save changes is the second button, so here is item [1]
+        var clickButton = document.getElementsByTagName("button")[1];
+        
+        // defining all variables
+        var nameInput = document.getElementById("firstName");
+        var lastNameInput = document.getElementById("lastName");
+        var emailInput = document.getElementById("email");
+        var companyInput = document.getElementById("company");
+        var websiteInput = document.getElementById("website");
+        var tzInput = document.getElementById("timezone");
+        var usernameInput = document.getElementById("username");
+        var pwdInput = document.getElementById("pwd");
+
+        // what to happen next when the button is clicked 
+        clickButton.addEventListener("click", clickMe);
+
+        // this function happens when the button is clicked
+        // storing all values from input
+        function clickMe() {
+            var name = nameInput.value;
+            var lastName = lastNameInput.value;
+            var email = emailInput.value;
+            var company = companyInput.value;
+            var website = websiteInput.value;
+            var tz = tzInput.value;
+            var username = usernameInput.value;
+            var pwd = pwdInput.value;
+
+            // array from all inputs in console
+            console.log(name, lastName, email, company, website, tz, username, pwd);
+
+            // if the input is empty, show alert
+            if (name, lastName, email, company, website, tz, username, pwd) {
+                console.log(name, lastName, company, website, tz, username, pwd);
+            } else {
+                alert("Enter all information!")
+            }
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+    <!-- END HTML CODE-->
+    <!-- Bootstrap scripts, do not remove -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        // Here bootstrap JQUERY, if you dont know what is this, you dont need it.
+    </script>
+</body>
+
+</html>
