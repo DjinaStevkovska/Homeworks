@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework14_01</title>
+</head>
+<body>
+    
+
+    <script>
+       var John = {
+           fullName: "John Doe",
+           mass: "58",
+           height: "1.64",
+           BMI: function(mass, height) {
+               return this.mass / this.height**2;
+           }
+       };
+       
+        // var bmi = John.BMI();
+        // John.BMI = bmi;
+
+        John.BMI = John.BMI();
+        console.log(John)
+
+
+       var Mark = {
+           fullName: "Mark Euell",
+           mass: "120",
+           height: "1.85",
+           BMI: function() {
+               this.BMI = this.mass / this.height**2;
+           }
+       };
+        Mark.BMI();
+        console.log(Mark)
+
+        if (John.BMI > Mark.BMI) {
+            console.log(John.fullName + "'s BMI is: " + John.BMI + ". He has higher BMI than Mark.")
+        } 
+        if ( Mark.BMI > John.BMI) {
+            console.log(Mark.fullName + "'s BMI is: " + Mark.BMI + ". He has higher BMI than John.")
+        }
+        else {
+            console.log(Mark.fullName + John.fullName + " have same BMI: " + John.BMI)
+        }
+
+    </script>
+</body>
+</html>

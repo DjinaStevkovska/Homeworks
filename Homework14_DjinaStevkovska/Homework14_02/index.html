@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework12_02</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+var John = {
+    paidBills:  [124, 48, 268, 180, 42],
+    onlyTips: [],
+    finalBill: [],
+    tipCalc: function() {
+        for ( var i=0; i<this.paidBills.length; i++) {
+            var tip;
+            if (this.paidBills[i] < 50 ) {
+                tip = this.paidBills[i]*20/100;
+            } else if (this.paidBills[i] >= 50 && this.paidBills[i] < 200) {
+                tip = this.paidBills[i]*15/100;
+               
+            } else if (this.paidBills[i] >= 200 ) {
+                tip = this.paidBills[i]*10/100;    
+            }
+            this.finalBill.push(this.paidBills[i]+tip);
+            this.onlyTips.push(tip);
+        }
+    }
+}
+
+// call the method from the object and write parameters in the console
+John.tipCalc();
+console.log("John: ");
+console.log(John.onlyTips, John.finalBill);
+
+
+
+var Mark = {
+    paidBills: [77, 375, 110, 45],
+    onlyTips: [],
+    finalBill: [],
+    tipCalc: function() {
+        for ( var i=0; i<this.paidBills.length; i++) {
+            var tip;
+            if (this.paidBills[i] < 100 ) {
+                tip = this.paidBills[i]*20/100;
+            } else if (this.paidBills[i] >= 100 && this.paidBills[i] < 300) {
+                tip = this.paidBills[i]*10/100;
+               
+            } else if (this.paidBills[i] >= 300 ) {
+                tip = this.paidBills[i]*25/100;  
+            }
+            this.finalBill.push(this.paidBills[i]+tip);
+            this.onlyTips.push(tip);
+        }
+    }
+}
+
+// call the method from the object and write parameters in the console
+Mark.tipCalc();
+console.log("Mark: ");
+console.log(Mark.onlyTips, Mark.finalBill);
+
+// define variables for the averageGivenTips() function
+var johnTips = John.onlyTips;
+var markTips = Mark.onlyTips;
+
+
+function averageGivenTips(tips) {
+    var sum = 0;  // empty variable to store the sum
+    for ( var i=0; i < tips.length; i++ ) {
+        sum += tips[i];   // calculate the sum (go through each element in the variable)
+    }
+
+    // don't even need this in console
+    console.log("Total paid tips amount is " + sum);
+    var avg = sum / tips.length;
+
+    // return the result from the function (average paid for tips)
+    return "Average paid tips amount is " + avg;
+}
+
+console.log("Mark's info: ")
+console.log(averageGivenTips(markTips));
+console.log("John's info: ")
+console.log(averageGivenTips(johnTips));
+
+// who paid the highest tips on average
+if (markTips > johnTips ) {
+    console.log("John paid highest tips on average!")
+} else console.log("Mark paid highest tips on average!")
+
+    </script>
+</body>
+</html>

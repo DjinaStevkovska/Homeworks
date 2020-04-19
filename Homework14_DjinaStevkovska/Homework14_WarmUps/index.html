@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Ups</title>
+</head>
+<body>
+
+
+    <script>
+        // Warm up 1
+        // Create a loop that will count in console from 1 to 100
+        var i=0;
+        while ( i <= 100 ) {
+            console.log(i);
+            i++;
+        }
+
+        // second solution
+        for (var i = 1; i <= 100; i++) {
+            console.log(i);
+        }
+
+
+        // Warm up 2
+        // Create array from words
+        var sentenceArray = ["This", "is", "an", "amazing", "sentece"]
+        for ( i=0; i<sentenceArray.length; i++ ) {
+            console.log(sentenceArray[i]);
+        }
+
+        var arrayInString = sentenceArray.join(" ")+".";
+        console.log(arrayInString);
+
+
+        // second soolution
+        var sentenceArray = ["This", "is", "an", "amazing", "sentece"]
+        var arrayInString = "";
+        for ( var i=0; i<sentenceArray.length; i++ ) {
+
+            if ( i === sentenceArray.length - 1 ) {
+                arrayInString += sentenceArray[i]+"."
+            }  else {
+                arrayInString += sentenceArray[i] + " "; 
+            }
+
+        }
+        console.log(arrayInString);
+       
+
+        // Warm up 3
+        var myArray = [null, 0, 1, 2, "five", "six", 3, 4, undefined, 5, 7]
+
+        function calculator(onlyNums) {
+            var result=0;
+            for ( var i=0; i<onlyNums.length; i++ ) {
+
+                if(typeof onlyNums[i] != "number") {
+                    continue
+                } 
+
+                // if (!onlyNums[i]) {
+                // continue;
+                // }
+            
+                // if (typeof onlyNums[i] === "string") {
+                // continue;
+                // }
+                
+                result += onlyNums[i];
+            }
+        return result;
+        }
+        console.log(calculator(myArray));
+        
+
+                
+    
+      
+    </script>
+</body>
+</html>
