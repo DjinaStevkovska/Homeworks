@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homework_15</title>
+</head>
+<body>
+    <div class="container">
+      
+    </div>
+
+    <script>
+        var container = document.querySelector(".container");
+        var list = document.querySelector("ul")
+
+        // create label
+        var label = document.createElement("h1");
+        label.textContent = "My Shopping List";
+
+        // create paragraph
+        var enterProducts = document.createElement("p");
+        enterProducts.textContent = "Enter products: ";
+
+        // create input
+        var input = document.createElement("input");
+        input.setAttribute("type", "text");
+        
+        // create button
+        var button = document.createElement("button");
+        button.setAttribute("type", "button");
+        button.textContent = "Add to cart";
+        button.addEventListener("click", addToCart);
+
+        //create list
+        var list = document.createElement("ul")
+
+        // add products to cart
+        container.appendChild(label);
+        container.appendChild(enterProducts);
+        container.appendChild(input);
+        container.appendChild(button);
+
+        // here i create function to add each element below
+        function addToCart() {
+
+
+            // i create products list (where to put each product)
+            var productsList = document.createElement("li");
+            // each product value i assign with the created product list <li>
+            productsList.textContent = input.value;
+
+            // i create delete button with type and class so later i can target it for the delete funciton
+            var deleteButton = document.createElement("button");
+            deleteButton.setAttribute("type", "button");
+            deleteButton.className = "delete";
+            deleteButton.textContent = "Delete product";
+
+            // appending each product with delete button next to it
+            container.appendChild(productsList);
+            productsList.appendChild(deleteButton);
+        
+            // function to delete each product when you click delete
+            deleteButton.addEventListener("click", deleteProduct);
+
+                function deleteProduct() {
+                container.removeChild(productsList);
+            }
+        }
+    </script>
+</body>
+</html>

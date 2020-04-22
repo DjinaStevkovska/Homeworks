@@ -1,0 +1,32 @@
+button {
+    border-radius: 10px;
+    margin-left: 8px;
+    padding: 8px;
+    background-color: lightskyblue;
+}
+
+input {
+    margin: 8px;
+    padding: 8px;
+}
+
+li {
+    margin: 8px;
+    padding: 8px;
+    font-size: 1.2em;
+    list-style-type: none;
+}
+
+h1 {
+    font-style: italic;
+    margin: 8px;
+    padding: 8px;
+    color: lightskyblue;
+}
+
+p {
+    font-size: 1.4em;
+    font-style: italic;
+    margin: 6px;
+    padding: 6px;
+}
