@@ -22,13 +22,13 @@
     <div>
         <select  class="form-control m-2 bg-secondary text-white w-25" name="mysel">
             <option value="Select class">Select class</option>
-            <option value="Primary">Primary</option>
-            <option value="Secondary">Secondary</option>
-            <option value="Success">Success</option>
-            <option value="Danger">Danger</option>
-            <option value="Warning">Warning</option>
-            <option value="Info">Info</option>
-            <option value="Dark">Dark</option>
+            <option value="primary">Primary</option>
+            <option value="secondary">Secondary</option>
+            <option value="success">Success</option>
+            <option value="danger">Danger</option>
+            <option value="warning">Warning</option>
+            <option value="info">Info</option>
+            <option value="dark">Dark</option>
         </select>
     
         <button type="button" class="btn btn-primary">Primary</button>
@@ -44,34 +44,41 @@
             button.textContent = this.value;
             console.log(button);
 
+            if (selectedOption === "dark") {
+                button.setAttribute("disabled", "");
+                button.className = "btn text-capitalize btn-" + selectedOption;
+                console.log(button);
+            } else {
+            button.className = "btn text-capitalize btn-" + selectedOption;
+            }
 
-            if (selectedOption === "Select class" ) {
-                button.className = "btn btn-primary";
-                // we can set bg color this way:
-                // button.style.backgroundColor = "blue";
-            }
-            else if (selectedOption === "Primary" ) {
-                button.className = "btn btn-primary";
-            }
-            else if (selectedOption === "Secondary" ) {
-                button.className = "btn btn-secondary";
-            }
-            else if (selectedOption === "Success" ) {
-                button.className = "btn btn-success";
-            }
-            else if (selectedOption === "Danger" ) {
-                button.className = "btn btn-danger";
-            }
-            else if (selectedOption === "Warning" ) {
-                button.className = "btn btn-warning";
-            }
-            else if (selectedOption === "Info" ) {
-                button.className = "btn btn-info";
-            }
-            else if (selectedOption === "Dark" ) {
-                button.className = "btn btn-dark";
-                button = disabled;
-            }
+            // if (selectedOption === "Select class" ) {
+            //     button.className = "btn btn-primary";
+            //     // we can set bg color this way:
+            //     // button.style.backgroundColor = "blue";
+            // }
+            // else if (selectedOption === "Primary" ) {
+            //     button.className = "btn btn-primary";
+            // }
+            // else if (selectedOption === "Secondary" ) {
+            //     button.className = "btn btn-secondary";
+            // }
+            // else if (selectedOption === "Success" ) {
+            //     button.className = "btn btn-success";
+            // }
+            // else if (selectedOption === "Danger" ) {
+            //     button.className = "btn btn-danger";
+            // }
+            // else if (selectedOption === "Warning" ) {
+            //     button.className = "btn btn-warning";
+            // }
+            // else if (selectedOption === "Info" ) {
+            //     button.className = "btn btn-info";
+            // }
+            // else if (selectedOption === "Dark" ) {
+            //     button.className = "btn btn-dark";
+            //     button = disabled;
+            // }
         }              
     </script>
 
