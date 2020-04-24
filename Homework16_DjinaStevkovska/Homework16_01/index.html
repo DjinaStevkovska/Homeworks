@@ -10,7 +10,7 @@
     <!-- Your custom CSS styles -->
     <style>
         button {
-            width: 50%;
+            width: 25%;
             margin: 2px;
         }
     </style>
@@ -20,7 +20,7 @@
 
 <body>
     <div>
-        <select  class="form-control m-2 bg-secondary text-white w-50" name="mysel">
+        <select  class="form-control m-2 bg-secondary text-white w-25" name="mysel">
             <option value="Select class">Select class</option>
             <option value="Primary">Primary</option>
             <option value="Secondary">Secondary</option>
@@ -43,6 +43,7 @@
             var selectedOption = this.value; 
             button.textContent = this.value;
             console.log(button);
+
 
             if (selectedOption === "Select class" ) {
                 button.className = "btn btn-primary";
@@ -69,6 +70,7 @@
             }
             else if (selectedOption === "Dark" ) {
                 button.className = "btn btn-dark";
+                button = disabled;
             }
         }              
     </script>
