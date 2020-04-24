@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Your custom CSS styles -->
+    <style>
+        button {
+            width: 50%;
+            margin: 2px;
+        }
+    </style>
+    <!-- Page title -->
+    <title>Homework16_01</title>
+</head>
+
+<body>
+    <div>
+        <select  class="form-control m-2 bg-secondary text-white w-50" name="mysel">
+            <option value="Select class">Select class</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+            <option value="Success">Success</option>
+            <option value="Danger">Danger</option>
+            <option value="Warning">Warning</option>
+            <option value="Info">Info</option>
+            <option value="Dark">Dark</option>
+        </select>
+    
+        <button type="button" class="btn btn-primary">Primary</button>
+    </div>
+
+    <script>
+        var select = document.querySelector("select");
+        select.addEventListener("change", colorChange);
+      
+        function colorChange() {
+            var button = document.querySelector("button");
+            var selectedOption = this.value; 
+            button.textContent = this.value;
+            console.log(button);
+
+            if (selectedOption === "Select class" ) {
+                button.className = "btn btn-primary";
+                // we can set bg color this way:
+                // button.style.backgroundColor = "blue";
+            }
+            else if (selectedOption === "Primary" ) {
+                button.className = "btn btn-primary";
+            }
+            else if (selectedOption === "Secondary" ) {
+                button.className = "btn btn-secondary";
+            }
+            else if (selectedOption === "Success" ) {
+                button.className = "btn btn-success";
+            }
+            else if (selectedOption === "Danger" ) {
+                button.className = "btn btn-danger";
+            }
+            else if (selectedOption === "Warning" ) {
+                button.className = "btn btn-warning";
+            }
+            else if (selectedOption === "Info" ) {
+                button.className = "btn btn-info";
+            }
+            else if (selectedOption === "Dark" ) {
+                button.className = "btn btn-dark";
+            }
+        }              
+    </script>
+
+    <!-- Bootstrap scripts, do not remove -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        // Here bootstrap JQUERY, if you dont know what is this, you dont need it.
+    </script>
+</body>
+
+</html>
