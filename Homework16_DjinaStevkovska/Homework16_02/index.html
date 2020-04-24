@@ -22,17 +22,17 @@
     <div id="container"></div>
 <script>
     function createSquares() {
-    var container = document.getElementById('container');
-    for (i = 0; i < 4; i++) {
-        var row = document.createElement('div');
-        row.classList.add("row");
-        container.appendChild(row);
-        for (j = 0; j < 4; j++) {
-            var col = document.createElement('div');
-            col.className = "col";
-            col.addEventListener("click", function() {
-                randomBgColor(this);
-            });
+        var container = document.getElementById('container');
+        for (i = 0; i < 4; i++) {
+            var row = document.createElement('div');
+            row.classList.add("row");
+            container.appendChild(row);
+            for (j = 0; j < 4; j++) {
+                var col = document.createElement('div');
+                col.className = "col";
+                col.addEventListener("click", function() {
+                    randomBgColor(this);
+                });
             row.appendChild(col);
             }
         }
