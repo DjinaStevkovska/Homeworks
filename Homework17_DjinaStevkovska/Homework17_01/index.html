@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Your custom CSS styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page title -->
+    <title>Your Bootstrap theme</title>
+</head>
+
+<body>
+    <!-- START HERE YOUR BOOTSTRAP HTML CODE -->
+    <main class="bg-light my-o container">
+        <div class="container">
+            <form action="" class="text-center py-3">
+                <h1>Form</h1>
+                <hr>
+                <div class="form-group col-md-6 offset-md-3">
+                    <select class="form-control" name="type" id="type">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+        var container = document.querySelector(".container");
+        var loremText = document.createElement("p");
+        var loremString = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dignissimos obcaecati ex excepturi vero enim voluptate, provident rerum, totam distinctio nulla quas laboriosam a molestias maxime accusamus modi consectetur ipsum. Mollitia obcaecati ipsum esse ratione vero! Rerum optio alias illum facere culpa ab praesentium. Consectetur repudiandae eos fugit perferendis dolorem."
+        var loremArray = loremString.split(" ");
+        var select = document.querySelector("select");
+        select.addEventListener("click", printLorem);
+
+        function printLorem() {
+            var selected = this.value;
+            var sliced = (loremArray.slice(0, selected));
+            var joined = sliced.join(" ");
+            var dot = ".";
+            // i use this to end every random lorem with dot (.)
+            var withDot = joined.concat(dot);
+            container.appendChild(loremText);
+            loremText.textContent = (withDot);
+        }
+
+
+        // //how to understand the homework
+
+        // var string = "My name is Djina";
+        // var split = string.split(" ");
+        // console.log(split);     // returns: ["My", "name", "is", "Djina"]
+
+        // var slice = split.slice(0, 3);
+        // console.log(slice);     // returns: ["My", "name", "is"]
+
+        // var join = slice.join(" ");
+        // console.log(join);      // returns: My name is
+
+        // var changedName = " anonymous!"
+        // var doneSentence = join.concat(changedName);
+        // console.log(doneSentence);      //returns: My name is anonymous!
+    
+    </script>
+
+    <!-- END HTML CODE-->
+    <!-- Bootstrap scripts, do not remove -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        // Here bootstrap JQUERY, if you dont know what is this, you dont need it.
+    </script>
+</body>
+
+</html>
