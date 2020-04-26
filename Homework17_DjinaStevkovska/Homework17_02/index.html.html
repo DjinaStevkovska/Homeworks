@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- custom CSS styles -->
+    <style>
+        p {
+            color: gray;
+            font-size: small;
+            text-align: left;
+            padding: 2px;
+        }
+        .btn-danger {
+            float: right;
+        }
+        li {
+            margin: 20px;
+            padding: 2px;
+            list-style: none;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page title -->
+    <title>Favorite Fruit App</title>
+</head>
+<body>
+    <!-- START HERE YOUR BOOTSTRAP HTML CODE -->
+    <main class="bg-light my-o container">
+        <div class="container">
+            <form action="" class="text-center py-3">
+                <h1>Favorite Fruits</h1>
+                <hr>
+                <div class="form-group w-50 mx-auto">
+                    <label for="favFruit">Please type your favorite fruits, separated by commas:</label>
+                    <input type="text" class="form-control" id="favFruit" placeholder="Enter fruits here">
+                    <p>You can type fruits only from this list:<br>
+                    apples, pears, oranges, pineapples, kiwis, bananas, berries, watermelons, lemons
+                    </p>
+                    <p class="invalid-feedback"></p>
+                </div>
+                <button type="button" class="btn btn-primary w-50">Add fruits</button>                  
+            </form>
+            <ul class="list-group"></ul>
+        </div>
+    </main>
+
+    <script>           
+        var container = document.querySelector(".container");
+        var rowFruit= document.querySelector("ul");
+        var input = document.querySelector("input");
+        var addFruits = document.querySelector("button");
+        addFruits.addEventListener("click", addToList);
+        
+        function addToList() {
+            var inputValues = input.value ? input.value :false;
+            var splittedInputValues = inputValues.split(",");        
+            // ["apples", "pears", "oranges", "pineapples", "kiwis", "bananas", "berries", "watermelons", "lemons"];]
+            var allowedFruits = "apples, pears, oranges, pineapples, kiwis, bananas, berries, watermelons, lemons"
+                     
+            if (inputValues !== false) {
+
+                var notAllowedInput = [];
+                
+                for ( var i=0; i<splittedInputValues.length; i++ ) {
+                    if ( allowedFruits.indexOf(splittedInputValues[i]) !== -1 ) {
+                        insertFruit(splittedInputValues[i].trim());
+                    } else if ( allowedFruits.indexOf(splittedInputValues[i]) === -1 ) {
+                        notAllowedInput.push(splittedInputValues[i].trim());
+                    }
+                }
+                if ( notAllowedInput.length > 0) {
+                    input.className = "is-invalid form-control";
+                    input.setAttribute("type", "text");
+                    var invalidFeedback = document.querySelector(".invalid-feedback");
+                    invalidFeedback.style.color = "red";
+                    invalidFeedback.textContent = " We cant add \"" + notAllowedInput.join(", ") + "\" . Its not in our fruit list." 
+                } else {
+                    input.className = "is-valid form-control";
+                    input.setAttribute("type", "text");
+                }
+            }
+        }             
+        function insertFruit(fruitname) {
+            var div = document.createElement("div");
+            div.className = "float-left";
+            div.textContent = fruitname;
+
+            var fruitList = document.createElement("li");
+            fruitList.className = "list-group-item;"
+            rowFruit.appendChild(fruitList);
+
+            var btn = document.createElement("button");
+            btn.setAttribute("type", "button");
+            btn.className = "btn btn-danger";
+            btn.textContent = "Delete";
+            rowFruit.appendChild(btn);
+            btn.addEventListener("click", removeFromList);
+
+            rowFruit.appendChild(fruitList);
+            fruitList.appendChild(div);
+            fruitList.appendChild(btn);
+        }
+        function removeFromList() {
+            var fruit = this.parentElement;
+            fruit.remove();
+        }   
+    </script>
+    <!-- END HTML CODE-->
+</body>
+</html>
