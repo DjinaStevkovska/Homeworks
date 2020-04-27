@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework17_03</title>
+</head>
+
+<body>
+    <script>
+        var text = "the simplestThings in LIFE are alwaysThe best";
+        var text2 = "THE simplest thingsIN LifeAre always THE best";
+        var text3 = "the SIMPLEST thingsINLifeARE alwaysTheBEST";
+        var text4 = "thisHomeworkWASChallenging. iLikeTHIS";
+        
+        function toTitleCase(camelCaseText) {
+            var lowerCaseWithSpaces = camelCaseText
+            // insert a space between lower & upper
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            // space before last upper in a sequence followed by lower
+            .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
+            // to lowercase
+            .toLowerCase();
+            // return string to next function
+            return toFirstLetterUpperCase(lowerCaseWithSpaces);
+        }  
+        function toFirstLetterUpperCase(text) {
+            // string to array
+           var splittedText = text.split(' ');
+           for (var i = 0; i < splittedText.length; i++) {
+               // making upper first letter of each word
+               splittedText[i] = splittedText[i].charAt(0).toUpperCase() + splittedText[i].slice(1); //can use substring instead of slice    
+           }
+           // array to string
+           return splittedText.join(' '); 
+        }
+        console.log(toTitleCase(text));
+        console.log(toTitleCase(text2));
+        console.log(toTitleCase(text3));
+        console.log(toTitleCase(text4));
+    </script>
+</body>
+</html>
