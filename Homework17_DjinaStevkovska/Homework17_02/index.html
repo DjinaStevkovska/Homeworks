@@ -21,9 +21,8 @@
             margin: 20px;
             padding: 2px;
             list-style: none;
-        }
+        } 
     </style>
-    <link rel="stylesheet" href="css/style.css">
     <!-- Page title -->
     <title>Favorite Fruit App</title>
 </head>
@@ -50,26 +49,35 @@
 
     <script>           
         var container = document.querySelector(".container");
-        var rowFruit= document.querySelector("ul");
         var input = document.querySelector("input");
         var addFruits = document.querySelector("button");
         addFruits.addEventListener("click", addToList);
-        
+        var count = [];
+
         function addToList() {
+
             var inputValues = input.value ? input.value :false;
             var splittedInputValues = inputValues.split(",");        
-            // ["apples", "pears", "oranges", "pineapples", "kiwis", "bananas", "berries", "watermelons", "lemons"];]
-            var allowedFruits = "apples, pears, oranges, pineapples, kiwis, bananas, berries, watermelons, lemons"
-                     
-            if (inputValues !== false) {
+            var allowedFruits = ["apples", "pears", "oranges", "pineapples", "kiwis", "bananas", "berries", "watermelons", "lemons"];
 
+            if (inputValues !== false) {
+                
                 var notAllowedInput = [];
                 
                 for ( var i=0; i<splittedInputValues.length; i++ ) {
-                    if ( allowedFruits.indexOf(splittedInputValues[i]) !== -1 ) {
-                        insertFruit(splittedInputValues[i].trim());
-                    } else if ( allowedFruits.indexOf(splittedInputValues[i]) === -1 ) {
-                        notAllowedInput.push(splittedInputValues[i].trim());
+                    var fruitname = splittedInputValues[i].trim();
+
+                    if ( allowedFruits.indexOf(fruitname) !== -1 ) {
+                        
+                        if (count.indexOf(fruitname) === -1) {
+                            insertFruit(fruitname);
+                            count.push(fruitname);
+                        } else {
+                            addQuantity(fruitname);
+                        }
+
+                    } else if ( allowedFruits.indexOf(fruitname) === -1 ) {
+                        notAllowedInput.push(fruitname);
                     }
                 }
                 if ( notAllowedInput.length > 0) {
@@ -83,29 +91,47 @@
                     input.setAttribute("type", "text");
                 }
             }
-        }             
+        }
+
         function insertFruit(fruitname) {
             var div = document.createElement("div");
             div.className = "float-left";
             div.textContent = fruitname;
 
+            var quantity = document.createElement("div");
+            quantity.textContent = "1";
+            quantity.setAttribute("id", fruitname);
+            quantity.style.float = "left";
+            quantity.style.paddingRight = "25px";
+
             var fruitList = document.createElement("li");
             fruitList.className = "list-group-item;"
-            rowFruit.appendChild(fruitList);
+            fruitList.style.fontSize = "1.4em";
 
             var btn = document.createElement("button");
             btn.setAttribute("type", "button");
             btn.className = "btn btn-danger";
             btn.textContent = "Delete";
-            rowFruit.appendChild(btn);
-            btn.addEventListener("click", removeFromList);
-
+            btn.addEventListener("click", function() {
+                removeFromList(this, fruitname)
+            });
+            
+            var rowFruit= document.querySelector("ul");
             rowFruit.appendChild(fruitList);
+            fruitList.appendChild(quantity);
+            rowFruit.appendChild(btn);
             fruitList.appendChild(div);
             fruitList.appendChild(btn);
         }
-        function removeFromList() {
-            var fruit = this.parentElement;
+
+        function addQuantity(fruitname) {
+            var addQnt = document.getElementById(fruitname);
+            addQnt.textContent = parseInt(addQnt.textContent) + 1;
+        }
+
+        function removeFromList(element, fruitname) {
+            count.pop(fruitname)
+            var fruit = element.parentElement;
             fruit.remove();
         }   
     </script>
