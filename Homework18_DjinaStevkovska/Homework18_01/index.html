@@ -30,15 +30,13 @@
         console.log(currentDate('.'));
         console.log(currentDate('\\'));
         console.log(currentDate('_'));
-
-
-
+        
 
         // 2)
         function getDaysInMonth(month, year) {
             return new Date(year, month, 0).getDate();
         }
-        console.log(getDaysInMonth(4, 2020));
+        console.log("2) Number the days in April is: " + getDaysInMonth(4, 2020));
 
 
         // 3)
@@ -47,8 +45,8 @@
         function month_name(month, day, year) {
             return monthNames[month.getMonth()];
         }
-        console.log(month_name(new Date("10/11/2020")));    
-        console.log(month_name(new Date("4/7/1998")));
+        console.log("3) The month is: " + month_name(new Date("10/11/2020")));    
+        console.log("3) The month is: " + month_name(new Date("4/7/1998")));
 
 
         // 4)
@@ -67,8 +65,8 @@
             //     return "Is not weekend!";
             // }
         }
-        console.log(isWeekend('Apr 29, 2020'));
-        console.log(isWeekend('Apr 26, 2020'));
+        console.log("4) April 29 2020 " + isWeekend('Apr 29, 2020'));
+        console.log("4) April 26 2020 " + isWeekend('Apr 26, 2020'));
 
 
         // 5)
@@ -76,7 +74,7 @@
             var diff = Math.abs((new Date(date1) - new Date(date2)) / 24/60/60/1000);
             return Math.floor(diff);
         }
-        console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+        console.log("5) Days between two dates: " + date_diff_indays('04/02/2014', '11/04/2014'));
 
             //how to understand
         // var d1 = new Date('04/02/2014')
@@ -89,7 +87,27 @@
         function lastday(year, month) {
             return new Date(year, month, 0).getDate();
         }
-        console.log(lastday(2014,11)); 
+        console.log("6) Last day of month is: " + lastday(2014,11)); 
+
+
+        // 7)
+        var dates = ["1/1/2020", "10/4/2020", "7/5/2019", "1/6/2020", "31/8/2020", "9/9/2020", "12/12/2021", "15/10/2019"];
+
+        function maxDate(dates) {
+
+        var highestDate = dates[0];
+
+        fullTime = new Date(dates[0]);
+
+        dates.forEach(function(date, index) {
+            if ( new Date(date) > fullTime) {
+                highestDate = date;
+                fullTime = new Date(date);
+            }
+        });
+        return highestDate;
+        }
+        console.log("7) Max date is: " + maxDate(dates));
 
 
         //  CALLBACK
