@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework18_02</title>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80);
+        }
+        div {
+            margin-left: 30%;
+            margin-top: 20%;
+            font-size: 8em;
+        }
+        p {
+            font-size: 2em;
+            margin-left: 5%;
+            float: left;
+        }
+    </style>
+    </head>
+<body>
+    <div id="time"></div>
+        <p style="margin-left: 35%;">days</p>
+        <p style="margin-left: 10%;">hours</p>
+        <p>minutes</p>
+        <p>seconds</p>
+
+    <script>
+
+        // set a valid end date
+        var ny = new Date(2021, 0, 1).getTime();
+        
+        var countdown = setInterval(function() {
+
+        // set todays date
+          var today = new Date().getTime();
+
+        // calculate differnce
+        var diff = ny-today
+
+        // remaining time
+        var days = Math.floor(diff/(1000*60*60*24));
+        var hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        var minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+        var seconds = Math.floor((diff%(1000*60))/1000);
+
+        // output
+        document.getElementById("time").innerHTML = days + "  |  " + hours + "  |  " + minutes + "  |  " + seconds;
+        // document.getElementById("p").innerHTML = "days" + days;
+        // document.getElementById("hours").innerHTML = "hours" + hours;
+        // document.getElementById("minutes").innerHTML = "minutes" + minutes;
+        // document.getElementById("seconds").innerHTML = "seconds" + seconds;
+
+            if ( diff < 0 ) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "It is already 2020!";
+            }
+        })
+
+        // can do it this way
+        // set this: function displayTime() {...}
+        // const createClock = setInterval(displayTime, 1000);
+
+    </script>
+</body>
+</html>
