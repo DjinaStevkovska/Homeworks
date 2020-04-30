@@ -3,31 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
     <title>Homework18_02</title>
     <style>
         body {
             background-image: url(https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80);
+            background-repeat: no-repeat;
+            position: relative;
+            background-size: cover;
+                       
         }
-        div {
-            margin-left: 30%;
-            margin-top: 20%;
-            font-size: 8em;
-        }
-        p {
+        div .days, .hrs, .mins, .secs{
             font-size: 2em;
-            margin-left: 5%;
-            float: left;
+            color: #2b2d42;
+            font-weight: bolder;
+            margin: 30px;
+            background-color: #fed9b7;
+            opacity: 0.7;
+            border-top-left-radius: 15%;
+            border-bottom-right-radius: 15%;
+            border-color: #fdfcdc;
+            border-style: solid;
+            width: 40%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                      
         }
+        h1 {
+            color: #fed9b7;
+            margin: 30px;
+            margin-bottom: 2%;
+            padding: 30px;
+            font-size: 4em;
+            font-weight: bolder;
+            font-style: italic;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        #spinner {
+            border: 16px solid #f3f3f3; 
+            border-top: 16px solid orange; 
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            position: fixed; 
+            top: 45%;
+            left: 45%;
+          }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                height: 680px;
+            }
+            div .days, .hrs, .mins, .secs{
+                margin: 2px;
+                width: 50%;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+       
+        #content, #footer {
+            display: none;
+            text-align: center;
+        }
+       
     </style>
     </head>
-<body>
-    <div id="time"></div>
-        <p style="margin-left: 35%;">days</p>
-        <p style="margin-left: 10%;">hours</p>
-        <p>minutes</p>
-        <p>seconds</p>
+    <body onload="timeOut()">
+        <div id="spinner"></div>
+
+    <div class="container text-center mt-10" id="content">
+        <h1>New Year Countdown</h1>
+        <div class="row text-white d-flex justify-content-center">
+            <div class="days col-md-2">
+                <span> </span><br>
+                <span id="text">days</span>
+            </div>
+            <div class="hrs col-md-2">
+                <span> </span><br>
+                <span id="text">hours</span>
+            </div>
+            <div class="mins col-md-2">
+                <span> </span><br>
+                <span id="text">minutes</span>
+            </div>
+            <div class="secs col-md-2">
+                <span> </span><br>
+                <span id="text">seconds</span>
+            </div>
+        </div>
+    </div>
+
+<div class="footer text-center fixed-bottom" id="footer">
+    <h1>2021</h1>
+</div>
 
     <script>
+        function timeOut() {
+            setTimeout(displayContent, 2500);
+        }
+
+        function displayContent() {
+            document.getElementById("spinner").style.display = "none";
+            document.getElementById("content").style.display = "block";
+            document.getElementById("footer").style.display = "block";
+        }
+
+
 
         // set a valid end date
         var ny = new Date(2021, 0, 1).getTime();
@@ -41,21 +132,29 @@
         var diff = ny-today
 
         // remaining time
-        var days = Math.floor(diff/(1000*60*60*24));
-        var hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-        var minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-        var seconds = Math.floor((diff%(1000*60))/1000);
+        var d = Math.floor(diff/(1000*60*60*24));
+        var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        var m = Math.floor((diff%(1000*60*60))/(1000*60));
+        var s = Math.floor((diff%(1000*60))/1000);
+
 
         // output
-        document.getElementById("time").innerHTML = days + "  |  " + hours + "  |  " + minutes + "  |  " + seconds;
-        // document.getElementById("p").innerHTML = "days" + days;
-        // document.getElementById("hours").innerHTML = "hours" + hours;
-        // document.getElementById("minutes").innerHTML = "minutes" + minutes;
-        // document.getElementById("seconds").innerHTML = "seconds" + seconds;
+        var days = document.querySelector(".days > span").firstChild;
+        days.textContent = d;
+
+        var hours = document.querySelector(".hrs > span").firstChild;
+        hours.textContent = h;
+
+        var minutes = document.querySelector(".mins > span").firstChild;
+        minutes.textContent = m;
+
+        var seconds = document.querySelector(".secs > span").firstChild;
+        seconds.textContent = s;
+
 
             if ( diff < 0 ) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "It is already 2020!";
+                document.getElementById("demo").innerHTML = "Happy New Year 2021!";
             }
         })
 
@@ -64,5 +163,17 @@
         // const createClock = setInterval(displayTime, 1000);
 
     </script>
+
+
+    <!-- Bootstrap scripts, do not remove -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>
