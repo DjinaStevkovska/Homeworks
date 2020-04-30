@@ -114,21 +114,23 @@
         myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];; //15
 
         function myMap(arr, callback) {
-            for ( var i=0; i<myArray.length; i++ ) {
+            printArray = [];
+            for ( var i=0; i<arr.length; i++ ) {
                 if (typeof callback === "function") {
                     callback(arr[i]);
                 }
             }
+            console.log(printArray);
         }
 
         myMap(myArray, function (increments) {
-            console.log(increments + 1);
+            printArray.push(increments + 1);
         });
         myMap(myArray, function (dobules) {
-            console.log(dobules*2);
+            printArray.push(dobules*2);
         });
         myMap(myArray, function (squares) {
-            console.log(squares**2);
+            printArray.push(squares**2);
         });
 
             // callback function other way
