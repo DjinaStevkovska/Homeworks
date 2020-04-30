@@ -5,81 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="css/style.css">
     <title>Homework18_02</title>
-    <style>
-        body {
-            background-image: url(https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80);
-            background-repeat: no-repeat;
-            position: relative;
-            background-size: cover;
-                       
-        }
-        div .days, .hrs, .mins, .secs{
-            font-size: 2em;
-            color: #2b2d42;
-            font-weight: bolder;
-            margin: 30px;
-            background-color: #fed9b7;
-            opacity: 0.7;
-            border-top-left-radius: 15%;
-            border-bottom-right-radius: 15%;
-            border-color: #fdfcdc;
-            border-style: solid;
-            width: 40%;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                      
-        }
-        h1 {
-            color: #fed9b7;
-            margin: 30px;
-            margin-bottom: 2%;
-            padding: 30px;
-            font-size: 4em;
-            font-weight: bolder;
-            font-style: italic;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
+ </head>
+<body onload="timeOut()">
 
-        #spinner {
-            border: 16px solid #f3f3f3; 
-            border-top: 16px solid orange; 
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
-            position: fixed; 
-            top: 45%;
-            left: 45%;
-          }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media screen and (max-width: 600px) {
-            body {
-                height: 680px;
-            }
-            div .days, .hrs, .mins, .secs{
-                margin: 2px;
-                width: 50%;
-            }
-            h1 {
-                font-size: 2em;
-            }
-        }
-       
-        #content, #footer {
-            display: none;
-            text-align: center;
-        }
-       
-    </style>
-    </head>
-    <body onload="timeOut()">
-        <div id="spinner"></div>
+    <div id="spinner"></div>
 
     <div class="container text-center mt-10" id="content">
         <h1>New Year Countdown</h1>
@@ -103,64 +34,61 @@
         </div>
     </div>
 
-<div class="footer text-center fixed-bottom" id="footer">
-    <h1>2021</h1>
-</div>
+    <div class="footer text-center fixed-bottom" id="footer">
+        <h1>2021</h1>
+    </div>
 
     <script>
+
+        // spinner timeout
         function timeOut() {
             setTimeout(displayContent, 2500);
         }
 
+        // display content after 2.5 secs
         function displayContent() {
             document.getElementById("spinner").style.display = "none";
             document.getElementById("content").style.display = "block";
             document.getElementById("footer").style.display = "block";
         }
 
+        function displayTime() {
 
+            // set a valid end date
+            var ny = new Date(2021, 0, 1).getTime();
 
-        // set a valid end date
-        var ny = new Date(2021, 0, 1).getTime();
-        
-        var countdown = setInterval(function() {
+            // set todays date
+            var today = new Date().getTime();
 
-        // set todays date
-          var today = new Date().getTime();
+            // calculate differnce
+            var diff = ny-today
 
-        // calculate differnce
-        var diff = ny-today
+            // remaining time
+            var d = Math.floor(diff/(1000*60*60*24));
+            var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+            var m = Math.floor((diff%(1000*60*60))/(1000*60));
+            var s = Math.floor((diff%(1000*60))/1000);
 
-        // remaining time
-        var d = Math.floor(diff/(1000*60*60*24));
-        var h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-        var m = Math.floor((diff%(1000*60*60))/(1000*60));
-        var s = Math.floor((diff%(1000*60))/1000);
+            // output
+            var days = document.querySelector(".days > span").firstChild;
+            days.textContent = d;
 
+            var hours = document.querySelector(".hrs > span").firstChild;
+            hours.textContent = h;
 
-        // output
-        var days = document.querySelector(".days > span").firstChild;
-        days.textContent = d;
+            var minutes = document.querySelector(".mins > span").firstChild;
+            minutes.textContent = m;
 
-        var hours = document.querySelector(".hrs > span").firstChild;
-        hours.textContent = h;
+            var seconds = document.querySelector(".secs > span").firstChild;
+            seconds.textContent = s;
 
-        var minutes = document.querySelector(".mins > span").firstChild;
-        minutes.textContent = m;
+                if ( diff < 0 ) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "Happy New Year 2021!";
+                }
+        }
 
-        var seconds = document.querySelector(".secs > span").firstChild;
-        seconds.textContent = s;
-
-
-            if ( diff < 0 ) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "Happy New Year 2021!";
-            }
-        })
-
-        // can do it this way
-        // set this: function displayTime() {...}
-        // const createClock = setInterval(displayTime, 1000);
+        setInterval(displayTime, 1000);
 
     </script>
 
