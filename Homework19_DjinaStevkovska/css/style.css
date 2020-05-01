@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.content {
+    width: 80%;
+    margin: auto;
+}
+.header {
+    margin: auto;
+}
+.bg-cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.151) 0%,rgba(255,255,255,0.9) 100%), url("https://upload.wikimedia.org/wikipedia/en/c/c4/Super_Hero_Squad_Show.jpg");     
+}
+h3 {
+    margin-top: 4%;
+    font-weight: bold;
+}
+h4 {
+    margin-bottom: 4%;
+    font-weight: bold;
+}
+h5 {
+    font-weight: bold;
+} 
+p {
+    margin-top: 5%;
+} 
+.bottom-text {
+    text-align: center;
+}
+.card {
+    float: left;
+    margin: 3%;
+    width: 18rem;
+}
+ul {
+    margin: 2%;
+}
+li {
+    list-style-type: none;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .card {
+        width: 90%;  
+    }
+}
