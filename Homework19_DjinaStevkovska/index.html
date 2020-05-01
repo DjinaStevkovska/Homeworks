@@ -32,15 +32,15 @@ var url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.
 
 var additionalData = [
                 { name: "Molecule Man", 
-                imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Molecule_Man.jpg/250px-Molecule_Man.jpg", 
+                photoURL: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Molecule_Man.jpg/250px-Molecule_Man.jpg", 
                 readMoreUrl: "https://en.wikipedia.org/wiki/Molecule_Man" },
 
                 { name: "Madame Uppercut", 
-                imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Madame-Web.png/250px-Madame-Web.png", 
+                photoURL: "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Madame-Web.png/250px-Madame-Web.png", 
                 readMoreUrl: "https://en.wikipedia.org/wiki/Madame_Web" },
 
                 { name: "Eternal Flame", 
-                imgUrl: "https://vignette.wikia.nocookie.net/marvel-cinematic-universe/images/7/7b/Eternal_Flame.png", 
+                photoURL: "https://vignette.wikia.nocookie.net/marvel-cinematic-universe/images/7/7b/Eternal_Flame.png", 
                 readMoreUrl: "https://marvelcinematicdatabase.fandom.com/wiki/Eternal_Flame" }
             ];
 
@@ -106,7 +106,7 @@ function getSquadData(url, hero) {
             // image and read more content
             for ( var i=0; i<hero.length; i++ ) {
                 if (hero[i].name === name) {
-                    var photo = hero[i].imgUrl;
+                    var photo = hero[i].photoURL;
                     var readMore = hero[i].readMoreUrl;
                 }
             }
