@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Your custom CSS styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page title -->
+    <title>Homework20_02</title>
+</head>
+
+<body>
+    <!-- START HERE YOUR BOOTSTRAP HTML CODE -->
+
+    <!--  popup form -->
+    <div class="row justify-content-center mx-auto hide" id="show">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header" style="background-color: darkblue;">
+                    <h4 class="card-title float-left text-white m-1">Sign up</h4>
+                    <button class="btn float-right text-white pl-5" onclick="div_hide()">x</button>
+                </header>
+                <article class="card-body">
+                    <p>Register with us to get offers, support and more.</p>
+                    <form>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Name</label>   
+                                <input type="text" class="form-control" placeholder="Entern Name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Password</label>   
+                                <input type="text" class="form-control" placeholder="Enter Password">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Confirm Password</label>
+                                <input type="text" class="form-control" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn float-left purple w-25"><a href="javascript:%20check_empty()" id="submit">Submit</a></button>
+                    </form>
+                </article> 
+            </div>
+        </div>
+    </div>
+    <!-- end of popup form -->
+
+    <div id="main-content">
+        <div class="header">
+            <h1 class="pt-5">My Landing Page</h1>
+            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, aliquid.</p>
+            <button class="btn m-2 purple" onclick="div_show()">Sign Up</button>
+        </div>
+    
+        <div class="container w-50">
+            <h3>What is this landing page?</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia repellat culpa rem necessitatibus eos, tenetur quaerat. 
+                Earum eligendi temporibus perferendis reiciendis fugit, voluptas cumque veritatis, corrupti accusantium possimus repellendus ab!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam non repellendus voluptatibus fuga tempora ipsa quae suscipit quos
+                 assumenda repellat.</p>
+    
+            <h3>Tell Me More</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur quaerat, temporibus maxime sit eligendi saepe cupiditate, 
+                praesentium quia quis sed assumenda, molestias earum ut doloremque? Lorem ipsum dolor sit amet.</p>
+    
+            <h3>Benefits</h3>
+            <ul>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+            </ul>
+    
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, ipsum! Fugiat accusamus sequi quis quos blanditiis reiciendis 
+                repellat exercitationem quas doloribus nihil perspiciatis commodi quaerat ipsum asperiores qui voluptatibus autem molestiae ducimus 
+                obcaecati aliquid ipsa, sint dolores cupiditate sapiente? Quia asperiores repellat eos officia ipsa. Nostrum quaerat et blanditiis 
+                quas similique iste suscipit harum animi? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto asperiores distinctio
+                 commodi fugiat doloremque?</p>
+        </div>
+    </div>
+
+
+    <script>
+        var button = document.querySelector("button");
+        var content = document.querySelector(".hide");
+
+        // validate Input Fields
+        function check_empty() {
+            if (!document.getElementsByTagName("input").value)  {
+            alert("Fill all fields!");
+            } else {
+            alert("Form sumbitted successfully.");
+            }
+        }
+
+        // display popup
+        function div_show() {
+            document.getElementById('show').style.display = "block";
+        }
+
+        // hide popup
+        function div_hide(){
+        document.getElementById('show').style.display = "none";
+        }
+      
+    </script>
+    <!-- END HTML CODE-->
+    <!-- Bootstrap scripts, do not remove -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        // Here bootstrap JQUERY, if you dont know what is this, you dont need it.
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.header {
+    height: 250px;
+    background-color: darkblue;
+    text-align: center;
+    color: white;
+}
+button {
+    width: 120px;
+}
+.purple {
+    background-color: purple;
+    color: white;
+}
+.container > h3 {
+    margin: 20px 10px 20px 10px;
+}
+.container > p {
+    margin: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+.container > ul {
+    font-weight: 500;
+    font-size: 16px;
+}
+.row {
+    width: 60%;
+}
+label {
+    font-weight: 700;
+}
+article > p {
+    font-weight: 700;
+}
+.hide {
+    display: none;
+    opacity: 1;
+}
+#show {
+    position:absolute;
+    margin: 0 auto;
+    left: 35%; 
+    top: 230px;
+}
+@media screen and (max-width: 700px){
+    #show {
+        left: 20%;
+    }
+ }
+/* #main-content {
+    opacity: 1;
+} */
