@@ -1,3 +1,7 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
 ul {
     list-style-type: none;   
     background-color: black;
