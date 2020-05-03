@@ -1,0 +1,51 @@
+ul {
+    list-style-type: none;   
+    background-color: black;
+    margin: 0;
+    padding: 0px;
+}
+li {
+    padding-top: 8px;
+    padding-bottom: 8px;  
+    color: white;      
+}
+.heading {
+    padding: 18px;
+    color: white;  
+    background-color: black;
+}
+.container {
+    width: 25%;
+    padding: 0;
+}
+.dropdown {
+    display: none;
+}
+.display-block {
+    display: block;
+}
+.green {
+    background-color: green;
+    height: 250px;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+button {
+    float: right;
+    margin: -18px;
+    height: 60px;
+    width: 60px;
+    color: grey;
+}
+a {
+    color: white;
+    text-decoration: none;
+    padding-left: 18px; 
+}
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+li:hover {
+    background-color: lightslategray;
+}
