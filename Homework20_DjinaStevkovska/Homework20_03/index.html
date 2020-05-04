@@ -38,6 +38,7 @@
         }).then(function(data){
             // console.log(data);
             createParaBox(data);
+            filter(data);
             
         })
 
@@ -48,6 +49,8 @@
             for ( var i=0; i<data.length; i++ ) {
                 var title = data[i].title;
                 var body = data[i].body;
+                var i = i+1;
+                
 
                 paraBox += `
                 <div class="card w-75 mx-auto text-white bg-primary">
@@ -58,10 +61,47 @@
                     </div>
                 </div>
                 `
-            }
+                container.innerHTML = paraBox; 
+            }         
 
-            container.innerHTML = paraBox;  
         }
+
+        function filter() {
+            // var card = document.querySelectorAll(".card");
+            var title = document.querySelectorAll(".card-title");
+            var body = document.querySelectorAll(".card-text");
+
+            title.forEach(element => {
+                var titleResult = element.innerText;
+            });
+
+            body.forEach(element => {
+                var bodyResult = element.innerText;
+            });
+
+        
+            var input = document.querySelector("input");
+            var inputValue = input.value;
+
+            for ( i=0; i<title.length; i++) {
+
+                var filterContent = title[i].innerText;
+                //  || body[i].innerText
+
+                if (filterContent.indexOf(inputValue) > -1) {
+                    console.log("AAAA")
+                    // card.style.display = "block"
+                } else {
+                    console.log("BBB")
+                    // card.style.display = "none";
+                }
+
+            }
+        }
+
+        
+
+
 
         function loading() {
             setTimeout(displaySpinner, 2500);
