@@ -1,0 +1,16 @@
+body {
+    background-color: lightskyblue;
+}
+.card {
+    margin: 40px;
+}
+.number {
+    margin: -15px;
+    background-color: white;
+    color: blue;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.3em;
+}
