@@ -2,131 +2,129 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- Your custom CSS styles -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Page title -->
-    <title>Homework20_03</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Your custom CSS styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Page title -->
+  <title>Homework20_03</title>
 </head>
 
-<body onload="loading()">
-    <!-- START HERE YOUR BOOTSTRAP HTML CODE -->
+<body>
+  <!-- START HERE YOUR BOOTSTRAP HTML CODE -->
 
-    <h2 class="text-center m-3 text-white">Serach my blog</h2>
+  <h2 class="text-center m-3 text-white">Serach my blog</h2>
 
-    <div class="input-group m-2 w-75 mx-auto">
-        <input type="text" class="form-control">
-    </div>
-    
-    <div class="container"></div>
-    <div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status" id="spinner">
-        </div>
-    </div>
+  <div class="input-group m-2 w-75 mx-auto">
+    <input id="searchInput" type="text" class="form-control" onkeyup="searchCards()">
+  </div>
 
-    <script>  
+  <div class="container"></div>
 
-        var url = "https://jsonplaceholder.typicode.com/posts"
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" id="spinner"></div>
+  </div>
 
-        fetch(url).then(function(result) {
-            // console.log(result);
-            return result.json();
-        }).then(function(data){
-            // console.log(data);
-            createParaBox(data);
-            filter(data);
-            
-        })
+  <script>
 
-        function createParaBox(data) {
-            var container = document.querySelector(".container");
-            var paraBox = "";
 
-            for ( var i=0; i<data.length; i++ ) {
-                var title = data[i].title;
-                var body = data[i].body;
-                var i = i+1;
-                
+    var url = "https://jsonplaceholder.typicode.com/posts";
+    var data = [];
+    counter = 0;
 
-                paraBox += `
+    fetch(url).then(function (result) {
+      return result.json();
+    }).then(function (inputData) {
+      data = inputData;
+      createParaBox(data);
+    })
+
+    function createParaBox(data) {
+      var container = document.querySelector(".container");
+      var paraBox = "";
+
+      for (var i = 0; i < data.length; i++) {
+        var title = data[i].title;
+        var body = data[i].body;
+        var number = counter + 1;
+
+        paraBox = `
                 <div class="card w-75 mx-auto text-white bg-primary">
-                    <div class="number">${i}</div>
+                    <div class="number">${number}</div>
                     <div class="card-body">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${body}</p>
                     </div>
                 </div>
                 `
-                container.innerHTML = paraBox; 
-            }         
+        container.innerHTML += paraBox;
+        counter += 1;
 
+        if (i === 4) {
+          loading();
+          break
         }
+      }
+    }
 
-        function filter() {
-            // var card = document.querySelectorAll(".card");
-            var title = document.querySelectorAll(".card-title");
-            var body = document.querySelectorAll(".card-text");
+    window.addEventListener("scroll", () => {
 
-            title.forEach(element => {
-                var titleResult = element.innerText;
-            });
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
 
-            body.forEach(element => {
-                var bodyResult = element.innerText;
-            });
+      if (Math.ceil(scrolled) === scrollable) {
+        var helper = [...data];
+        var helper = helper.splice(counter, data.length);
+        createParaBox(helper);
+      }
+    });
+    
+    function searchCards() {
 
-        
-            var input = document.querySelector("input");
-            var inputValue = input.value;
+      var input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      var cards = document.querySelectorAll(".card");
 
-            for ( i=0; i<title.length; i++) {
+      for (i = 0; i < cards.length; i++) {
+        var cardTitle = cards[i].querySelector(".card-title");
+        var titleText = cardTitle.textContent || cardTitle.innerText;
+        var cardText = cards[i].querySelector(".card-text");
+        var cardTextValue = cardText.textContent || cardText.innerText;
 
-                var filterContent = title[i].innerText;
-                //  || body[i].innerText
-
-                if (filterContent.indexOf(inputValue) > -1) {
-                    console.log("AAAA")
-                    // card.style.display = "block"
-                } else {
-                    console.log("BBB")
-                    // card.style.display = "none";
-                }
-
-            }
+        if (titleText.toUpperCase().indexOf(filter) > -1 || cardTextValue.toUpperCase().indexOf(filter) > -1) {
+          cards[i].style.display = "";
+        } else {
+          cards[i].style.display = "none";
         }
+      }
+    }
 
-        
+    function loading() {
+      setTimeout(displaySpinner, 1000);
+    }
 
+    function displaySpinner() {
+      document.getElementById("spinner").style.display = "none";
+    }
 
+  </script>
 
-        function loading() {
-            setTimeout(displaySpinner, 2500);
-        }
-
-        function displaySpinner() {
-            document.getElementById("spinner").style.display = "none";
-        }
-
-    </script>
-
-    <!-- END HTML CODE-->
-    <!-- Bootstrap scripts, do not remove -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script>
+  <!-- END HTML CODE-->
+  <!-- Bootstrap scripts, do not remove -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script>
         // Here bootstrap JQUERY, if you dont know what is this, you dont need it.
-    </script>
+  </script>
 </body>
-
 </html>
