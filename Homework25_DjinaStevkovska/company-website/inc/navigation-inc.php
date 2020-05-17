@@ -15,7 +15,7 @@
                             <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" id="userData" href=""><i class="fas fa-user"></i> <?= $_COOKIE["username"]; ?></a>
                             <div class="dropdown-menu" aria-labelledby="userData">
                                 <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="./logout.php">Logout</a>
+                                <a class="dropdown-item" href="index.php?page=login">Logout</a>
                             </div>
                         </div>
                     </li>
