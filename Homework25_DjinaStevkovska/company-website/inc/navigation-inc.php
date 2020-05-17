@@ -8,7 +8,7 @@
 
         <?php foreach($navItems as $key => $value) : ?>
 
-                <?php if (isset($_COOKIE["username"])) :?>
+                <?php if (isset($_COOKIE["username"]) && $value === "Login") :?>
         
                     <li class="nav-item">
                         <div class="dropdown show">

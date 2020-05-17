@@ -1,10 +1,10 @@
 <?php
+
     if(isset($_GET["page"])) {
         $page = $_GET["page"];
     } else {
         $page = "";
     }
-
 
     if(file_exists("inc/func.php")) {
         include "inc/func.php";
@@ -14,10 +14,11 @@
         exit("Error!");
     }
 
-    if (isset($_POST["username"])) {
-        setcookie("Username", $_POST["username"]);
+    if (isset($_POST["username"]) && (isset($_POST["login"]))) {
+        setcookie("username", $_POST["username"]);
         header("Location: index.php?page=about");
     }
+
 ?> 
 
 <!DOCTYPE html>
@@ -70,40 +71,39 @@
         switch ($page) {
             case "about" :
                 $title = "About";
-                include "about.php";
+                include "./pages/about.php";
                 $footer = true;
             break;
 
             case "contact" :
                 $title = "Contact";
-                include "contact.php";
+                include "./pages/contact.php";
                 $footer = false;
             break;
 
             case "login" :
                 $title = "Login";
-                include "login.php";
+                include "./pages/login.php";
                 $footer = false;
             break;
 
             default:
                 $title = "Home";
-                include "index-content.php";
+                include "./pages/index-content.php";
                 $footer = true;
             break;   
 
-} 
+        } 
 
-?>
-  
+    ?>
 
     <!-- Content End -->
 
     <!-- Footer -->
     <?php
-    if($footer) {
-        include "./inc/footer-inc.php";
-    }    
+        if($footer) {
+            include "./inc/footer-inc.php";
+        }    
     ?>
     
 </body>
