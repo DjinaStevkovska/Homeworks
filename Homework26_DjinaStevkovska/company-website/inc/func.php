@@ -1,4 +1,15 @@
 <?php
+if(file_exists("inc/config.php")) {
+    include "inc/config.php";
+} else {
+    exit();
+}
+if(file_exists("inc/constants.php")) {
+    include "inc/constants.php";
+} else {
+    exit();
+}
+
 function getTitle($page, $titles) {
     if ($page === "") {
         return "Home page";
@@ -11,8 +22,7 @@ function getTitle($page, $titles) {
     }
 }
 function registerUser($name, $id, $password, $confirmPassword) {
-    $fileDir = "/home/vagrant/code/public/company-website/ini-files";
-    $file = $fileDir."/".$id.".ini";
+    $file = INI_FILE_DIR."/".$id.".ini";
 
     // if user do not exist, create account
     if (!file_exists($file)) {
@@ -21,8 +31,17 @@ function registerUser($name, $id, $password, $confirmPassword) {
         $content .= "password=".$password."\n";
         $content .= "confirmPassword=".$confirmPassword."\n";
         
-        if ($password === $confirmPassword) {
+        if ($password === $confirmPassword && !empty($password)) {
             file_put_contents($file, $content);
+                
+            if (isset($_POST["register"])) {
+                setcookie("usernameID", $_POST["id"]);
+                header("Location: index.php?page=about");
+            }
+        } elseif (empty($password)) {
+            // header("Location: index.php?page=login&error=".url_encode("Password not match"));
+
+            echo "<script>alert('Please enter password!')</script>";
         } else {
             echo "<script>alert('Passwords not matching!')</script>";
         }
@@ -33,29 +52,33 @@ function registerUser($name, $id, $password, $confirmPassword) {
     }
 }
 
-function login($username, $password) {
-    $file = $fileDir."/".$id."ini";
+function login($username, $pass) {
+    $file = INI_FILE_DIR."/".$username.".ini";
+
     if(file_exists($file)) {
         $userData = parse_ini_file($file);
-        // if ($userData["password"]) === $password){
-        //     //  && $userData["id"] === "$username"
-        //     setcookie("username", $_POST["username"]);
-        //     header("Location: index.php?page=about"); 
-        // }
-    // }
-}
+
+             
+        if ($userData["password"] === $pass && $userData["id"] === $username){
+            // var_dump($userData);
+            // var_dump($userData['name']);
+            // var_dump($userData['id']);
+            // var_dump($userData['password']);
+            // var_dump($pass);
+
+            setcookie("usernameID", $_POST["username"]);
+            header("Location: index.php?page=about");
+
+        } else {
+            echo "<script>alert('Incorrect password!')</script>";
+        }
+        
+        if (empty($password) || empty($username)) {
+            echo "<script>alert('Please enter all information!')</script>";
+        }
+
+    } else {
+        echo "<script>alert('Used does not exist, please register!')</script>";
+    }
 }
 
-$navItems = [
-    "index.php?page=index" => "Home",
-    "index.php?page=about" => "About",
-    "index.php?page=contact" => "Contact",
-    "index.php?page=login" => "Login"
-];
-
-$titles = [
-    "index" => "Home page",
-    "about" => "About page",
-    "contact" => "Contact page",
-    "login" => "Login page"
-];

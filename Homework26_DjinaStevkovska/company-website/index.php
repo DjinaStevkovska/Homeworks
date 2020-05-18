@@ -14,16 +14,24 @@
         exit("Error!");
     }
 
-    if (isset($_POST["username"]) && (isset($_POST["login"]))) {
-        setcookie("username", $_POST["username"]);
-        header("Location: index.php?page=about");
-    }
+
+
+    // if (isset($_POST["username"]) && (isset($_POST["login"]))) {
+    //     setcookie("username", $_POST["username"]);
+    //     header("Location: index.php?page=about");
+    // }
 
     if (isset($_POST["register"])) {
-        $name = $_POST["name"];
-        $id = $_POST["id"];
-        $password = $_POST["password"];
-        $confirmPassword = $_POST["confirmPassword"];
+        $name = isset($_POST["name"]) ? $_POST["name"] : "";
+        $id = isset($_POST["id"]) ? $_POST["id"] : "";
+        $password = isset($_POST["password"]) ? $_POST["password"] : "";
+        $confirmPassword = isset($_POST["confirmPassword"]) ? $_POST["confirmPassword"] : "";
+
+
+        // $name = $_POST["name"];
+        // $id = $_POST["id"];
+        // $password = $_POST["password"];
+        // $confirmPassword = $_POST["confirmPassword"];
         registerUser($name, $id, $password, $confirmPassword);
     }
 

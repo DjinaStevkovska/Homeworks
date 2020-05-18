@@ -1,6 +1,6 @@
 <?php
-if (isset($_COOKIE['username'])) {
-  setcookie("username", $_COOKIE["username"], time() - 360);
+if (isset($_COOKIE['usernameID'])) {
+  setcookie("usernameID", $_COOKIE["usernameID"], time() - 360);
   header("Location: index.php?page=login");
 }
 ?>
@@ -19,6 +19,8 @@ if (isset($_COOKIE['username'])) {
 
             <div class="text-right mt-0"><a href="index.php?page=register" class="btn btn-default small">Create an account</a></div>
             <button class="btn btn-primary btn-block" name="login">LOGIN</button>
+            <!-- <?php//= if (isset($_REQUEST['error'])) : ?>
+            <div class="text-center mt-3 text-danger">Please enter password!</div> -->
           </form>
         </div>
       </div>

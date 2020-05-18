@@ -8,11 +8,12 @@
 
         <?php foreach($navItems as $key => $value) : ?>
 
-                <?php if (isset($_COOKIE["username"]) && $value === "Login") :?>
+
+                <?php if (isset($_COOKIE["usernameID"]) && $value === "Login") :?>
         
                     <li class="nav-item">
                         <div class="dropdown show">
-                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" id="userData" href=""><i class="fas fa-user"></i> <?= $_COOKIE["username"]; ?></a>
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" id="userData" href=""><i class="fas fa-user"></i> <?= $_COOKIE["usernameID"]; ?></a>
                             <div class="dropdown-menu" aria-labelledby="userData">
                                 <a class="dropdown-item" href="#">Profile</a>
                                 <a class="dropdown-item" name="logout" href="index.php?page=login">Logout</a>
