@@ -1,14 +1,14 @@
 <?php
 
-// check if session variable 'quiz' exist
-$results = [];
 if(!empty($_SESSION["quiz"])) {
     $answers = parse_ini_file("answers.ini");
-    
+    $results = [];
     foreach ($answers as $key => $value) {
-      $results[$key] = array ("user_answers" => $_SESSION["quiz"][$key], "correct_answers" => $value);
+        if (isset($_SESSION["quiz"][$key])) {
+            $results[$key] = array ("user_answers" => $_SESSION["quiz"][$key], "correct_answers" => $value);
+        } 
     }
-}
+  }
 session_destroy();
 ?>
 

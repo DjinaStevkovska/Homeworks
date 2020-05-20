@@ -1,8 +1,6 @@
 <?php
-// start session here
 session_start();
 
-// if question is set in form we save and increase it by one to go to next question
 if(isset($_POST['q'])) {
     $q = $_POST['q'];    
     $q++;
@@ -10,12 +8,9 @@ if(isset($_POST['q'])) {
     $q = 0;
 }
  
-// if $_POST variable 'answer' exist put in session variable 'quiz' and current question number  as 'q'.$q 
-//( if first question it will create variable q1, if second q2 etc)
 if(!empty($_POST['answer'])) { 
     $answer = $_POST['answer'];
-    $_SESSION["quiz"]['q'.$_POST['q']] = $_POST['answer'];
-    // var_dump($_SESSION);
+    $_SESSION["quiz"]['q'.$_POST['q']] = $answer;
 }
 
 ?>
@@ -51,7 +46,6 @@ if(!empty($_POST['answer'])) {
                             case 2:
                                 include 'questions/q2.php';
                                 break;
-                            // add more questions here
                             case 3:
                                 include 'questions/q3.php';
                                 break;
