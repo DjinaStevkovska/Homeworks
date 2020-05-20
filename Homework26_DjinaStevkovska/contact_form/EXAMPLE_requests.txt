@@ -1,2 +1,0 @@
-alek | alek@email.com | Hi this is example message
-john | john@snow.com | This is contact message from John Snow
