@@ -1,0 +1,8 @@
+{
+    "name": "vagrant/homework39_djina-stevkovska",
+    "description": "pdf generator",
+    "type": "project",
+    "require": {
+        "mpdf/mpdf": "^8.0"
+    }
+}

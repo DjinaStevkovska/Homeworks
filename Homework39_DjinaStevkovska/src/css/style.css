@@ -1,0 +1,21 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* width: 50%; */
+    margin: auto;
+}
+.grid-container > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+.item1, .item2, .item3, .item4 {
+    background-color:purple;
+}
+.item5, .item6, .item7, .item8 {
+    background-color: white;
+}
+.item9, .item10, .item11, .item12 {
+    background-color:purple;
+}
