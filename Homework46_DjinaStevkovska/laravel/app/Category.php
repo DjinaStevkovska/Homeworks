@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Cards;
+use App\Card;
 
 class Category extends Model
 {
     public function card()
     {
-        return $this->belongsToMany(Cards::class);
+        return $this->belongsToMany(Card::class);
     }
 }

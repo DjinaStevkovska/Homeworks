@@ -21,21 +21,21 @@ use Illuminate\Support\Facades\Route;
 //     return view('layout');
 // });
 
-Route::get('/', 'CardsController@index');
+Route::get('/', 'CardController@index');
 
 Route::get('/create', function () {
     return view('pages.create');
 });
 
-Route::post('/create', 'CardsController@create');
+Route::post('/create', 'CardController@create');
 
-Route::get('/card-{id}', 'CardsController@show')->name('showRoute');
+Route::get('/card-{id}', 'CardController@show')->name('showRoute');
 
-Route::get('card-{id}/edit', 'CardsController@edit');
+Route::get('card-{id}/edit', 'CardController@edit');
 
-Route::put('/card-{id}', 'CardsController@update');
+Route::put('/card-{id}', 'CardController@update');
 
-Route::delete('/card-{id}','CardsController@destroy');
+Route::delete('/card-{id}','CardController@destroy');
 
 
 

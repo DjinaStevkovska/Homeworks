@@ -3,23 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cards;
-use App\User;
+use App\Card;
 
-
-class CardsController extends Controller
+class CardController extends Controller
 {
     public function index()
     {
-        $cards = Cards::all();
+        $card = Card::all();
         // take(6)->latest()->get();
 
-        return view('pages.cards', ['cards' => $cards]);
+        return view('pages.cards', ['card' => $card]);
     }
 
     public function show($id)
     {
-        $card = Cards::findOrFail($id);
+        $card = Card::findOrFail($id);
         // ->user();
         // dd($card);
         // $card = Card::find($card->card_id)->user();
@@ -43,7 +41,7 @@ class CardsController extends Controller
             'body' => 'required'
         ]);
 
-        Card::create($this->validateCard);
+        Card::create($this->validateCard());
         // same as above
         // $card = new Cards();
         // $card->img  = $request->input('img', 30);
@@ -55,16 +53,16 @@ class CardsController extends Controller
 
     public function edit($id)
     {
-        $card = Cards::findOrFail($id);
+        $card = Card::findOrFail($id);
         return view('pages.edit', ['card' => $card]);
     }
 
 
-    public function update(Cards $card, $id) 
+    public function update(Card $card, $id) 
     {
         // $card->save();
 
-        $cardObj = Cards::find($id);
+        $cardObj = Card::find($id);
         $cardObj->update($this->validateCard());
         // validation same as here: 
         // $cardObj = Cards::findOrFail($card->id);
@@ -80,7 +78,7 @@ class CardsController extends Controller
 
     public function destroy($id)
     {
-        $card = Cards::find($id)->delete();
+        $card = Card::find($id)->delete();
         return redirect('/');
     }
 

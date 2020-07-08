@@ -3,10 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-Use App\User;
-Use App\Category;
+use App\User;
+use App\Category;
 
-class Cards extends Model
+class Card extends Model
 {
     protected $table = 'cards';
 
@@ -22,4 +22,3 @@ class Cards extends Model
         return $this->belongsToMany(Category::class);
     }
 }
-

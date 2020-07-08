@@ -11,7 +11,7 @@
 				<!-- Extra -->
 					{{-- <div id="extra"> --}}
 							<div class="row no-collapse-1">
-								@foreach ($cards as $card)
+								@foreach ($card as $card)
 									<section class="4u" style="margin-bottom: 120px; height: 500px; width: 500px;"> <a href="#" class="image featured"><img src="images/{{ $card->img }}" alt=""></a>
 									<div class="box">
 									<h2>Labrador number {{ $card->id }}</h2>
