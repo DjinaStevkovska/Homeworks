@@ -29,6 +29,7 @@
         <form action="/" method="post">
             @csrf
             <br>
+            <br>
             <input type="name" name='name' placeholder="Enter Your Name" class="form-control">
             <br>
             <input type="email" name='email' placeholder="Enter Your Email" class="form-control">
