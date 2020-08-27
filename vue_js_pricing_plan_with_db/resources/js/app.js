@@ -40,11 +40,12 @@ Vue.component('plan-template', {
                 mail_inc: this.mail_inc
             })
             .then(response => {
-                console.log(response)
+                alert("Your plan is paid");
               })
             .catch(error => {
             console.log(error);
             });
+
             // console.log(this.name);
         }
     }

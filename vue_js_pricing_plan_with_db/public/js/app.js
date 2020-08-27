@@ -49762,7 +49762,8 @@ Vue.component('plan-template', {
         storage: this.storage,
         mail_inc: this.mail_inc
       }).then(function (response) {
-        console.log(response);
+        // echo"<script>alert('Your Plan is paid!')</script>";
+        alert("Your plan is paid");
       })["catch"](function (error) {
         console.log(error);
       }); // console.log(this.name);

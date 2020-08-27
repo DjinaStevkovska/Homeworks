@@ -21,4 +21,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'BoughtPlanController@index');
-Route::post('/', 'BoughtPlanController@Store');
+Route::post('/', 'BoughtPlanController@store');

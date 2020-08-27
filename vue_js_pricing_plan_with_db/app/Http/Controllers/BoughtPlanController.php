@@ -18,13 +18,8 @@ class BoughtPlanController extends Controller
         $plan->name = $request->name;
         $plan->price = $request->price;
         $plan->storage = $request->storage;
-        $plan->mail_included = $request->mail_included;
+        $plan->mail_included = $request->mail_inc;
 
-        $plan->save();
-
-        // echo"<script>alert('Your Plan is paid!')</script>";
-
-        return '<script type="text/javascript">alert("Your plan is paid")</script>';
-            
+        $plan->save();            
     }
 }
