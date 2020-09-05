@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import EventCard from "./EventCardComponent";
+import EventCardComponent from "../components/EventCardComponent";
 export default {
   components: {
     EventCardComponent,

@@ -1927,6 +1927,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1938,7 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
+    return _defineProperty({
       event: {
         id: 1,
         title: "Beach Cleanup",
@@ -1952,7 +1954,19 @@ __webpack_require__.r(__webpack_exports__);
           name: "Matt Toe"
         }]
       }
-    };
+    }, "event", {
+      id: 2,
+      title: "Beach Cleanup",
+      date: "Thursday Sept 3, 2020",
+      time: "6:00",
+      attendees: [{
+        id: "111",
+        name: "John Doe"
+      }, {
+        id: "222",
+        name: "Matt Toe"
+      }]
+    });
   }
 });
 
@@ -2000,7 +2014,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EventCardComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventCardComponent */ "./resources/js/components/EventCardComponent.vue");
+/* harmony import */ var _components_EventCardComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/EventCardComponent */ "./resources/js/components/EventCardComponent.vue");
 //
 //
 //
@@ -2011,7 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    EventCardComponent: EventCardComponent
+    EventCardComponent: _components_EventCardComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -53495,8 +53509,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\caphp\laravel\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\caphp\laravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
