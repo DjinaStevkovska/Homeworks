@@ -1965,6 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1976,22 +1977,35 @@ __webpack_require__.r(__webpack_exports__);
       projectDescription: "",
       projects: [{
         name: 'test',
-        descrption: 'lorem10lorem10lorem10',
-        created_at: Date.now()
+        description: 'lorem10lorem10lorem10',
+        created_at: '2020-20-20'
       }]
     };
   },
   methods: {
     createProject: function createProject() {
       var name = this.projectName;
-      var descrption = this.projectDescription;
-      this.projects.push({
-        name: name,
-        descrption: descrption
-      });
+      var description = this.projectDescription;
+
+      if (name.length && description.length) {
+        this.projects.push({
+          name: name,
+          description: description,
+          created_at: new Date().toISOString().slice(0, 10)
+        });
+        axios.post('/', {
+          'name': name,
+          'description': description
+        }).then(function (response) {
+          alert("Succesfully created project!");
+        })["catch"](function (error) {
+          alert(error);
+        });
+      } else {
+        alert('Please insert values!');
+      }
     }
-  },
-  props: ['name', 'description', 'created_at']
+  }
 });
 
 /***/ }),
@@ -2032,14 +2046,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['name', 'description', 'created_at'],
-  data: function data() {
-    return {
-      thecardtitle: 'Child Component!',
-      thecardbody: 'I\'m just a child.'
-    };
+  // props: ['name', 'description', 'created_at'],
+  name: 'list-component',
+  props: {
+    parentData: Array
   }
-}); // ['name', 'description', 'created_at'],
+});
 
 /***/ }),
 
@@ -37629,7 +37641,7 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("list-component"),
+      _c("list-component", { attrs: { parentData: _vm.projects } }),
       _vm._v(" "),
       _c(
         "div",
@@ -37673,7 +37685,7 @@ var render = function() {
                   _vm._m(1),
                   _vm._v(" "),
                   _c("div", { staticClass: "md:w-2/3" }, [
-                    _c("textarea", {
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
@@ -37685,10 +37697,9 @@ var render = function() {
                       staticClass:
                         "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500",
                       attrs: {
-                        id: "inline-full-name",
-                        type: "text",
+                        id: "description",
                         name: "description",
-                        cols: "3"
+                        type: "text"
                       },
                       domProps: { value: _vm.projectDescription },
                       on: {
@@ -37710,7 +37721,6 @@ var render = function() {
                       {
                         staticClass:
                           "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded",
-                        attrs: { type: "submit" },
                         on: {
                           click: function($event) {
                             return _vm.createProject()
@@ -37801,7 +37811,7 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "divide-y divide-gray-200" },
-      _vm._l(_vm.projects, function(project) {
+      _vm._l(_vm.parentData, function(project) {
         return _c("li", { key: project.name, staticClass: "py-6" }, [
           _c(
             "article",
@@ -50114,15 +50124,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/Components/ListComponent.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ListComponent_vue_vue_type_template_id_a3271378___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListComponent.vue?vue&type=template&id=a3271378& */ "./resources/js/Components/ListComponent.vue?vue&type=template&id=a3271378&");
 /* harmony import */ var _ListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListComponent.vue?vue&type=script&lang=js& */ "./resources/js/Components/ListComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50152,7 +50161,7 @@ component.options.__file = "resources/js/Components/ListComponent.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/Components/ListComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

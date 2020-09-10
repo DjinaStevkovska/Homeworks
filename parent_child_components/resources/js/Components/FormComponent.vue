@@ -1,7 +1,7 @@
 <template>
 
 <div class="container">
-    <list-component></list-component>
+    <list-component :parentData="projects"></list-component>
 
     <div class="divide-y divide-gray-200" id="app">
         <div class="flex flex-col py-2">
@@ -30,17 +30,18 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <textarea
+                            <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                            id="inline-full-name" type="text" name="description" cols="3" v-model="projectDescription"> </textarea>
+                            id="description" 
+                            name="description" 
+                            type="text" 
+                            v-model="projectDescription">
                     </div>
                 </div>
                 <div class="md:flex md:items-center">
-
                     <div class="md:w-2/3">
                         <button
                             class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                            type="submit"
                             @click='createProject()'>
                             Create Project
                         </button>
@@ -67,8 +68,8 @@ export default {
 
             projects: [{
                 name: 'test',
-                descrption: 'lorem10lorem10lorem10',
-                created_at: Date.now()
+                description: 'lorem10lorem10lorem10',
+                created_at: '2020-20-20'
             }]
         }
     },
@@ -77,16 +78,33 @@ export default {
         createProject: function()
         {
             var name = this.projectName;
-            var descrption = this.projectDescription;
-            this.projects.push(
-                {
-                name:name,
-                descrption:descrption
-                }
-            )  
-        }
+            var description = this.projectDescription;
+
+            if (name.length && description.length) 
+            {
+                this.projects.push({
+                    name: name,
+                    description: description,
+                    created_at: new Date().toISOString().slice(0, 10)
+                })
+
+                axios.post('/', {
+                    'name': name,
+                    'description': description,
+                })
+                .then(response => {
+                    alert("Succesfully created project!");
+                })
+                .catch(error => {
+                alert(error);
+                })
+            } else {
+                alert('Please insert values!')
+            }
+
+        },
+
     },
 
-    props: ['name', 'description', 'created_at']
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <ul class="divide-y divide-gray-200">
-        <li class="py-6" v-for="project in projects" :key="project.name">
+        <li class="py-6" v-for="project in parentData" :key="project.name">
             <article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                 <dl>
                     <dt class="sr-only">Published on</dt>
@@ -26,16 +26,12 @@
 
 <script>
 export default {
-        props: ['name', 'description', 'created_at'],
-
-        data() {
-            return {
-                thecardtitle: 'Child Component!',
-                thecardbody: 'I\'m just a child.'
-            }
+        // props: ['name', 'description', 'created_at'],
+        name: 'list-component',
+        props: {
+            parentData: Array,
         }
     }
-        // ['name', 'description', 'created_at'],
 
 
 </script>
