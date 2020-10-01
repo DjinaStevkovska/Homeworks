@@ -1,0 +1,172 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Beach Cleanup",
+      "date": "Aug 28 2018",
+      "time": "10:00",
+      "location": "Daytona Beach",
+      "description": "Let's clean up this beach.",
+      "organizer": "Adam Jahr",
+      "category": "sustainability",
+      "attendees": [
+        {
+          "id": "abc123",
+          "name": "Adam Jahr"
+        },
+        {
+          "id": "def456",
+          "name": "Gregg Pollack"
+        },
+        {
+          "id": "ghi789",
+          "name": "Beth Swanson"
+        },
+        {
+          "id": "jkl101",
+          "name": "Mary Gordon"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Park Cleanup",
+      "date": "Nov 12 2018",
+      "time": "12:00",
+      "location": "132 N Magnolia Street, Orlando, Florida",
+      "description": "We're going to clean up this park.",
+      "organizer": "Adam Jahr",
+      "category": "nature",
+      "attendees": [
+        {
+          "id": "ghi789",
+          "name": "Beth Swanson"
+        },
+        {
+          "id": "jkl101",
+          "name": "Mary Gordon"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Pet Adoption Day",
+      "date": "Dec 2 2018",
+      "time": "12:00",
+      "location": "132 N Magnolia Street, Orlando, Florida",
+      "description": "Help animals find new homes.",
+      "organizer": "Gregg Pollack",
+      "category": "animal welfare",
+      "attendees": [
+        {
+          "id": "abc123",
+          "name": "Adam Jahr"
+        },
+        {
+          "id": "ghi789",
+          "name": "Beth Swanson"
+        },
+        {
+          "id": "jkl101",
+          "name": "Mary Gordon"
+        }
+      ]
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 33561744,
+      "user": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "title": "Clean Vodno",
+      "description": "Clean Vodno from garbage",
+      "location": "Vodno",
+      "date": "2020-09-26T17:11:00.000Z",
+      "time": "11:00",
+      "attendees": []
+    },
+    {
+      "id": 70089372,
+      "user": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "title": "test123",
+      "description": "test123",
+      "location": "test",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 26018166,
+      "user": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "title": "test1111",
+      "description": "1test1111",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 73742634,
+      "user": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "title": "23123",
+      "description": "312312",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 25965735,
+      "user": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "category": "education",
+      "organizer": {
+        "id": "123",
+        "name": "John Doe"
+      },
+      "title": "Teach people to be polite",
+      "description": "be polite",
+      "location": "Home",
+      "date": "2020-09-21T17:40:00.000Z",
+      "time": "12:00",
+      "attendees": []
+    }
+  ]
+}
